@@ -11,7 +11,7 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 ENTRYPOINT ["/tini", "-vvv", "-g", "-w", "--"]
 
-EXPOSE 9527 9528
+EXPOSE 9528
 
 CMD ['/usr/local/bin/npm', 'run', 'dev']
 # docker run -d -P --name=vue-admin actanble/vue-element-admin npm run dev
