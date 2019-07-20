@@ -91,6 +91,19 @@ export const constantRoutes = [
   },
 
   {
+    path: '/test_echart',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Echart',
+        component: () => import('@/views/xagent/index'),
+        meta: { title: 'Echart测试', icon: 'form' }
+      }
+    ]
+  },
+
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
