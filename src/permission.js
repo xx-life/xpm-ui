@@ -8,7 +8,8 @@ import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['/login'] // no redirect whitelist
+const LoginUrl = '/cso/mg/jwt_login/'
+const whiteList = [LoginUrl, '/cso/agent/pushd_pot_data', '/login'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   // start progress bar
@@ -21,7 +22,7 @@ router.beforeEach(async(to, from, next) => {
   const hasToken = getToken()
 
   if (hasToken) {
-    if (to.path === '/login') {
+    if (to.path === LoginUrl) {
       // if is logged in, redirect to the home page
       next({ path: '/' })
       NProgress.done()
@@ -39,7 +40,7 @@ router.beforeEach(async(to, from, next) => {
           // remove token and go to login page to re-login
           await store.dispatch('user/resetToken')
           Message.error(error || 'Has Error')
-          next(`/login?redirect=${to.path}`)
+          next(LoginUrl + `/?redirect=${to.path}`)
           NProgress.done()
         }
       }

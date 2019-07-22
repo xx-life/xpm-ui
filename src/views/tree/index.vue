@@ -35,16 +35,6 @@ export default {
           }]
         }]
       }, {
-        id: 2,
-        label: 'Level one 2',
-        children: [{
-          id: 5,
-          label: 'Level two 2-1'
-        }, {
-          id: 6,
-          label: 'Level two 2-2'
-        }]
-      }, {
         id: 3,
         label: 'Level one 3',
         children: [{
@@ -69,7 +59,12 @@ export default {
 
   methods: {
     filterNode(value, data) {
-      if (!value) return true
+      if (!value) {
+        if (value === 'Level one 2') {
+          console.log('No Same Error')
+        }
+        return true
+      }
       return data.label.indexOf(value) !== -1
     }
   }

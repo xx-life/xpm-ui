@@ -104,6 +104,19 @@ export const constantRoutes = [
   },
 
   {
+    path: '/test_demo',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'test_axios',
+        component: () => import('@/views/xagent/test_axios/index'),
+        meta: { title: 'Ajax测试', icon: 'form' }
+      }
+    ]
+  },
+
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
