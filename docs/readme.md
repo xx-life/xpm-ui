@@ -51,3 +51,4 @@ script.type = 'text/javascript';
 script.src = 'http://xxx.xxx';
 document.head.appendChild(script);
 ```
+- 另外也可以在 pucblic/index.html 中加

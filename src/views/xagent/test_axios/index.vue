@@ -14,7 +14,7 @@
 </style>
 <template>
   <div>
-    <h2> {{title}} </h2>
+    <h2> {{ title }} </h2>
 
   </div>
 </template>
@@ -25,13 +25,15 @@ export default {
     return { 'title': 'test-axios' }
   },
   mounted: function() {
-    const url = 'http://localhost:3322/cso/mg/jwt_login/'
+    console.log('RUNED')
+    const url = 'http://localhost:3322/cso/mg/user/login'
     const params = {
       username: 'admin001',
       password: '112233..'
     }
     this.$ajax.post(url, params).then(function(res) {
       console.log(res)
+      this.title = res.token
     }).catch(function(err) {
       console.log(err)
     })

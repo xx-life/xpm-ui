@@ -17,12 +17,11 @@
     <div id="chart_example">
 
     </div>
-    <test> {{ info }} </test>
+    <div> {{ info }} </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import echarts from 'echarts'
 
 export default {
@@ -33,12 +32,12 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://www.runoob.com/try/ajax/json_demo.json').then(
-      response => (this.info = response)).catch(
-      function(error) { // 请求失败处理
-        console.log(error)
-      })
-
+    // axios.get('https://www.runoob.com/try/ajax/json_demo.json').then(
+    //   response => (this.info = response)).catch(
+    //   function(error) { // 请求失败处理
+    //     console.log(error)
+    //   })
+    // 上面这部分已经被封装了 uilts
     // let this_ = this;
     const myChart = echarts.init(document.getElementById('chart_example'))
     const option = {

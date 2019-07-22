@@ -15,7 +15,7 @@
       </el-table-column>
       <el-table-column label="Title">
         <template slot-scope="scope">
-          {{ scope.row.title }}
+          {{ scope.row.infosysname }}
         </template>
       </el-table-column>
       <el-table-column label="Author" width="110" align="center">
@@ -28,15 +28,21 @@
           {{ scope.row.pageviews }}
         </template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="Status" width="110" align="center">
+      <el-table-column class-name="status-col" label="info_type" width="110" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
+          <el-tag :type="scope.row.info_type | statusFilter">{{ scope.row.info_type }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" prop="created_at" label="Display_time" width="200">
+      <el-table-column align="center" prop="created_at" label="descover_time" width="200">
         <template slot-scope="scope">
           <i class="el-icon-time" />
-          <span>{{ scope.row.display_time }}</span>
+          <span>{{ scope.row.descover_time }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column align="center" prop="created_at" label="happend_time" width="200">
+        <template slot-scope="scope">
+          <i class="el-icon-time" />
+          <span>{{ scope.row.happend_time }}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -70,7 +76,9 @@ export default {
     fetchData() {
       this.listLoading = true
       getList().then(response => {
-        this.list = response.data.items
+        console.log(response)
+        // 1
+        this.list = response.results
         this.listLoading = false
       })
     }
