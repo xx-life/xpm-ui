@@ -45,7 +45,7 @@ const actions = {
         if (!data) {
           reject('用户信息已失效, 请重新登录')
         }
-
+        console.log(data)
         const { name, avatar } = data
 
         commit('SET_NAME', name)

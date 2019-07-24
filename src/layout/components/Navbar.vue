@@ -1,8 +1,6 @@
 <template>
   <div class="navbar">
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-
-    <div> =====空===== </div>
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">

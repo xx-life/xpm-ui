@@ -15,8 +15,13 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
-import axios from 'axios'
-Vue.prototype.$ajax = axios
+/**
+ *  if you don;t what to run it replaced wuth requests
+ *   you can do it like this down .
+ */
+
+// import axios from 'axios'
+// Vue.prototype.$ajax = axios
 
 /**
  * If you don't want to use mock-server

@@ -33,13 +33,12 @@ import Layout from '@/layout'
 export const constantRoutes = [
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
+    component: () => import('@/views/common/login/index'),
     hidden: true
   },
-
   {
     path: '/404',
-    component: () => import('@/views/404'),
+    component: () => import('@/views/error_code/404'),
     hidden: true
   },
 
@@ -50,7 +49,7 @@ export const constantRoutes = [
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
+      component: () => import('@/views/common/dashboard/index'),
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
@@ -65,13 +64,13 @@ export const constantRoutes = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('@/views/table/index'),
+        component: () => import('@/views/common/table/index'),
         meta: { title: '表格', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/common/tree/index'),
         meta: { title: '树目录', icon: 'tree' }
       }
     ]
@@ -84,7 +83,7 @@ export const constantRoutes = [
       {
         path: 'index',
         name: 'Form',
-        component: () => import('@/views/form/index'),
+        component: () => import('@/views/common/form/index'),
         meta: { title: '表单', icon: 'form' }
       }
     ]
@@ -99,6 +98,19 @@ export const constantRoutes = [
         name: 'Echart',
         component: () => import('@/views/xagent/index'),
         meta: { title: 'Echart测试', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/1form2',
+    component: Layout,
+    children: [
+      {
+        path: 'form2',
+        name: 'formtest2',
+        component: () => import('@/views/xadmin/_1_xobj/index'),
+        meta: { title: 'Form测试q', icon: 'form' }
       }
     ]
   },
@@ -128,31 +140,31 @@ export const constantRoutes = [
     children: [
       {
         path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        component: () => import('@/views/common/nested/menu1/index'), // Parent router-view
         name: 'Menu1',
         meta: { title: 'Menu1' },
         children: [
           {
             path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
+            component: () => import('@/views/common/nested/menu1/menu1-1'),
             name: 'Menu1-1',
             meta: { title: 'Menu1-1' }
           },
           {
             path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
+            component: () => import('@/views/common/nested/menu1/menu1-2'),
             name: 'Menu1-2',
             meta: { title: 'Menu1-2' },
             children: [
               {
                 path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+                component: () => import('@/views/common/nested/menu1/menu1-2/menu1-2-1'),
                 name: 'Menu1-2-1',
                 meta: { title: 'Menu1-2-1' }
               },
               {
                 path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+                component: () => import('@/views/common/nested/menu1/menu1-2/menu1-2-2'),
                 name: 'Menu1-2-2',
                 meta: { title: 'Menu1-2-2' }
               }
@@ -160,7 +172,7 @@ export const constantRoutes = [
           },
           {
             path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
+            component: () => import('@/views/common/nested/menu1/menu1-3'),
             name: 'Menu1-3',
             meta: { title: 'Menu1-3' }
           }
@@ -168,7 +180,7 @@ export const constantRoutes = [
       },
       {
         path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/common/nested/menu2/index'),
         meta: { title: 'menu2' }
       }
     ]
